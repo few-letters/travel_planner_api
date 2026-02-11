@@ -75,5 +75,3 @@ The collection is pre-configured with Basic Auth (`admin` / `admin123`).
 - **GET** `/api/places/?project_id={id}` - List places for a specific project.
 - **POST** `/api/places/` - Add a new place to an existing project (Body must include `project` ID).
 - **PATCH** `/api/places/{id}/` - Mark a place as visited (`is_visited: true`) or update notes.
-- **GET** `/api/places/?project_id={id}` - List places for a specific project.
-- **PATCH** `/api/places/{id}/` - Mark a place as visited (`is_visited: true`) or update notes.
