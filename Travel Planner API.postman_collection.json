@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "ec2531c9-1380-4a73-ae6f-71530162897b",
+    "name": "Travel Planner API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52303428",
+    "_collection_link": "https://go.postman.co/collection/52303428-ec2531c9-1380-4a73-ae6f-71530162897b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Project",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"My Chicago Trip\",\r\n    \"description\": \"Visiting the best artworks\",\r\n    \"start_date\": \"2023-11-01\",\r\n    \"places\": [\r\n        {\r\n            \"external_id\": \"27992\", \r\n            \"notes\": \"some note\"\r\n        },\r\n        {\r\n            \"external_id\": \"111628\",\r\n            \"notes\": \"some note\"\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/projects/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "projects",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Projects",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/projects/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "projects",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Single Project",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/projects/1/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "projects",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Places for Project",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/places/?project_id=1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "places",
+            ""
+          ],
+          "query": [
+            {
+              "key": "project_id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Place",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"is_visited\": true,\r\n    \"notes\": \"Very cool!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/places/1/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "places",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Project",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/projects/1/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "projects",
+            "1",
+            ""
+          ]
+        },
+        "description": "Should fail if project contains places"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Place to Existing Project",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"project\": 1,\r\n    \"external_id\": \"129884\",\r\n    \"notes\": \"some note\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/places/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "places",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "admin123",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "admin",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
